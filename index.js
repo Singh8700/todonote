@@ -3,7 +3,6 @@ const express = require("express")
 // express set in app variable
 const app = express()
 
-
 // ejs import
 app.set("view engine","ejs")
 

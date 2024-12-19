@@ -20,12 +20,14 @@
                 <!-- title ke liye input -->
                 <input type="text" placeholder="Title goes enter"
                     class="block px-5 py-2 bg-zinc-800 mt-2 w-full outline-none rounded-md"
-                    name="titles">
+                    name="titles"
+                    required>
                 <!-- textarea create -->
                 <textarea placeholder="write your task details"
                     class="block px-5 py-2 bg-zinc-800 resize-none mt-2 w-full outline-none rounded-md"
                     placeholder="Message"
-                    name="details"></textarea>
+                    name="details"
+                    required></textarea>
                 <!-- create a button -->
                 <button type="submit" class="mt-2 bg-blue-500 px-5 rounded-md">Add Task</button>
             </form>
@@ -33,7 +35,7 @@
         <!-- result div create -->
         <div class="tasks p-10 flex gap-4 flex-wrap items-center justify-center">
             <!-- check the file length is not 0 -->
-            <% if(files.length > 0) { %>
+            <% if( files.length ) { %>
                 <% files.forEach((file)=>{ %>
                     <!-- card style -->
                     <div class="task w-72 px-4 py-3 bg-zinc-800 rounded-md text-center">
