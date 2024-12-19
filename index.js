@@ -46,7 +46,7 @@ app.get("/",(req,res)=>{
 // create route ke lie
 app.post("/create",(req,res)=>{
     // console.log(req.body)
-    fs.writeFile(`./files/${req.body.titles.split(' ').join('')}.txt`,req.body.details,(err)=>{
+    fs.writeFile(`./works/${req.body.titles.split(' ').join('')}.txt`,req.body.details,(err)=>{
         console.log("something  is wrong",err)
         return res.redirect('/')
     })
@@ -54,8 +54,8 @@ app.post("/create",(req,res)=>{
 
 
 // create file ke data ko read karne ka code
-app.get("/files/:filename",(req,res)=>{
-    fs.readFile(`./files/${req.params.filename}`,"utf-8",(err, fileData)=>{
+app.get("/works/:filename",(req,res)=>{
+    fs.readFile(`./works/${req.params.filename}`,"utf-8",(err, fileData)=>{
         console.log("somethin want worng",err)
         res.render("show",{
             fileTitle:req.params.filename.split(".txt").join(""),
