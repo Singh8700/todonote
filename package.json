@@ -7,8 +7,8 @@
     "start":"nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["kumar singh","how to make todo list ", "express course", "project file upload in github"],
+  "author": "Kumar Rohit",
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.7",
