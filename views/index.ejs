@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- tailwind css cnd -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <!-- form div create -->
+        <div class="form p-10 text-white">.
+            <!-- form create -->
+            <form action="/create" method="post" autocomplete="off">
+                <!-- title ke liye input -->
+                <input type="text" placeholder="Title goes enter"
+                    class="block px-5 py-2 bg-zinc-800 mt-2 w-full outline-none rounded-md"
+                    name="titles">
+                <!-- textarea create -->
+                <textarea placeholder="write your task details"
+                    class="block px-5 py-2 bg-zinc-800 resize-none mt-2 w-full outline-none rounded-md"
+                    placeholder="Message"
+                    name="details"></textarea>
+                <!-- create a button -->
+                <button type="submit" class="mt-2 bg-blue-500 px-5 rounded-md">Add Task</button>
+            </form>
+        </div>
+        <!-- result div create -->
+        <div class="tasks p-10 flex gap-4 flex-wrap items-center justify-center">
+            <!-- check the file length is not 0 -->
+            <% if(files.length > 0) { %>
+                <% files.forEach((file)=>{ %>
+                    <!-- card style -->
+                    <div class="task w-72 px-4 py-3 bg-zinc-800 rounded-md text-center">
+                        <h1 class="text-white text-2xl tracking-tighter "><%= file.split(".txt").join("") %></h1>
+                        <a class="text-blue-500 inline-block mt-3" href="/files/<%= file %>">Read more</a>
+                    </div>
+                    <!-- card style end -->
+                <% }) %>
+            <% } else {  %>
+                <h4 class="text-blue-500 text-center">Not task yet.</h4>
+            <% }%>
+
+        </div>
+    </div>
+
+
+    <!-- custom scrpt -->
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
