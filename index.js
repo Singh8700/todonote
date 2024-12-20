@@ -90,18 +90,23 @@ app.post("/edit",(req,res)=>{
 //update file content 
 app.get("/update/:filename",(req,res)=>{
     //console.log("thus is one ",req.path.split("update/").join("works/"))
-  res.render("update",{fileName :req.path.split("update/").join("works/"),
-    content: fs.readFile(`./works${req.path.split("update/").join("")}`,"utf-8",(e)=>{
-      
-    })
-  })
+    try{
+      const fileContet = fs.readFileSync(`./works${req.path.split("update/").join("")}`,"utf-8")
+      //console.log(fileContetn)
+res.render("update",{fileName :req.path.split("update/").join("works/"),
+    content: fileContet
+})
+    }catch (e){
+      console.log("fileContetn erro",e)
+    }
 })
 
 app.post("/update",(req,res)=>{
   const fileName = `works/${req.body.previousTitle.split(" ").join("_")}.txt`
  // console.log(fileName)
-  fs.writeFile(fileName,req.body.details,(e)=>{
-    res.redirect("/")
+  fs.writeFile(fileName,req.body.details,(e,data)=>{
+    res.redirect(`/${fileName}`)
+   // console.log("upadate ",fileName)
   })
 })
 
