@@ -19,13 +19,13 @@
                 <input type="text" placeholder="Title goes enter"
                     class="block px-5 py-2 bg-zinc-800 mt-2 w-full outline-none rounded-md text-zinc-500"
               
-                    value="<%= fileName.split(".txt").join("") %>"
+                    value="<%= fileName.split("_").join(" ").split(".txt").join("") %>"
                     name="previousTitle"
                     required>
                 <!-- New Title-->
                 <input type="text" placeholder="New goes enter"
                     class="block px-5 py-2 bg-zinc-800 mt-2 w-full outline-none rounded-md"
-                    value="<%= "
+                    value=""
                     name="newTitle"
                     required>
                 <!-- create a button -->

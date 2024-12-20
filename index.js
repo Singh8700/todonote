@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname,"public")))
 
 // file system module import
 const fs = require("fs")
-const { log } = require("console")
+
 
 // app main interface
 app.get("/",(req,res)=>{
@@ -54,12 +54,26 @@ app.get("/delete/:filename",(req,res)=>{
 })
 
 // create route ke lie
-app.post("/create",(req,res)=>{
+app.post("/create",(req,res,next)=>{
+  try{
+    try {
+  const stats = fs.statSync(`./works/${req.body.titles.split(' ').join('_')}.txt`);
+  if(stats.isFile()){
+    return res.render("alert")
+    next()
+  }
+} catch (err) {
+  //console.error(err);
+}
     // console.log(req.body)
     fs.writeFile(`./works/${req.body.titles.split(' ').join('_')}.txt`,req.body.details,(err)=>{
         console.log("something  is wrong",err)
         return res.redirect('/')
     })
+    
+  } catch (e){
+    console.log("create error",e)
+  }
 })
 
 
@@ -80,10 +94,11 @@ app.get("/edit/:filename",(req,res)=>{
 })
 
 app.post("/edit",(req,res)=>{
-  fs.rename(`./works/${req.body.previousTitle}.txt`,`./works/${req.body.newTitle.split(" ").join("_")}.txt`,(e)=>{
+  fs.rename(`./works/${req.body.previousTitle.split(" ").join("_")}.txt`,`./works/${req.body.newTitle.split(" ").join("_")}.txt`,(e)=>{
     res.redirect("/")
   })
- console.log(`./works/${req.body.previousTitle}.txt`)
+// console.log("old file name",`./works/${req.body.previousTitle.split(" ").join("_")}.txt`)
+// console.log("new file name",`./works/${req.body.newTitle.split(" ").join("_")}.txt`)
 })
 
 
