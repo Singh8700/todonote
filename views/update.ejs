@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Tital</title>
+    <title>Update</title>
     <!-- tailwind css cnd -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -14,22 +14,24 @@
             Go Back
         </a>
     </div>
-    <form action="/edit" method="post" autocomplete="off">
+    <form action="/update" method="post" autocomplete="off">
                 <!-- title ke liye input -->
                 <input type="text" placeholder="Title goes enter"
                     class="block px-5 py-2 bg-zinc-800 mt-2 w-full outline-none rounded-md text-zinc-500"
               
-                    value="<%= fileName.split(".txt").join("") %>"
+                    value="<%= fileName.split("/works/").join("").split("_").join(" ").split(".txt").join("")%>"
                     name="previousTitle"
                     required>
-                <!-- New Title-->
-                <input type="text" placeholder="New goes enter"
-                    class="block px-5 py-2 bg-zinc-800 mt-2 w-full outline-none rounded-md"
-                    value="<%= "
-                    name="newTitle"
-                    required>
+              <!--  textarea create -->
+                <textarea placeholder="write your task details"
+                    class="block px-5 py-2 bg-zinc-800 resize-none mt-2 w-full outline-none rounded-md"
+                rows="5"
+                    placeholder="Message"
+                    name="details"
+                    value="<%= content %>"
+                    required></textarea>
                 <!-- create a button -->
-                <button type="submit" class="mt-2 bg-yellow-500 px-5 rounded-md">Edit Title</button>
+                <button type="submit" class="mt-2 bg-yellow-500 px-5 rounded-md">update Task</button>
             </form>
     </div>
 </body>

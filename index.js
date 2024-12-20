@@ -80,11 +80,32 @@ app.get("/edit/:filename",(req,res)=>{
 })
 
 app.post("/edit",(req,res)=>{
-  fs.rename(`./works/${req.body.previousTitle.split(".txt").join("")}`,`./works/${req.body.newTitle.split(" ").join("_")}.txt`,(e)=>{
+  fs.rename(`./works/${req.body.previousTitle}.txt`,`./works/${req.body.newTitle.split(" ").join("_")}.txt`,(e)=>{
     res.redirect("/")
   })
- //console.log(req.body)
+ console.log(`./works/${req.body.previousTitle}.txt`)
 })
+
+
+//update file content 
+app.get("/update/:filename",(req,res)=>{
+    //console.log("thus is one ",req.path.split("update/").join("works/"))
+  res.render("update",{fileName :req.path.split("update/").join("works/"),
+    content: fs.readFile(`./works${req.path.split("update/").join("")}`,"utf-8",(e)=>{
+      
+    })
+  })
+})
+
+app.post("/update",(req,res)=>{
+  const fileName = `works/${req.body.previousTitle.split(" ").join("_")}.txt`
+ // console.log(fileName)
+  fs.writeFile(fileName,req.body.details,(e)=>{
+    res.redirect("/")
+  })
+})
+
+
 
 // server link 
 app.listen(3000,(req,res)=>{

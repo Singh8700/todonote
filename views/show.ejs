@@ -18,9 +18,14 @@
         <h1 class="text-5xl tracking-tighter mt-10">
             <%= fileTitle.split("_").join(" ").split(".txt").join("") %>
         </h1>
+       <div class="flex flex-start justify-between">
         <p class="text-xl mt-2 text-zinc-300 px-3 font-light">
             <%= fileData %>
         </p>
+        <a href="/update/<%= fileTitle %>" class="btn text-zinc-700 flex flex-start hover:text-zinc-300">
+          Edit
+        </a>
+        </div>
     </div>
 </body>
 </html>
