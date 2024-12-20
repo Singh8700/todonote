@@ -35,15 +35,19 @@
         <!-- result div create -->
         <div class="tasks p-10 flex gap-4 flex-wrap items-center justify-center">
             <!-- check the file length is not 0 -->
-            <% if(files == "" ) { %>
+            <% if(files == ".gitkeep" ) { %>
                 <h4 class="text-blue-500 text-center">Not task yet.</h4>
             <% } else {  %>
                 <% files.forEach((file)=>{ %>
+                    <% if(file == ".gitkeep" ) { %>
+                        
+                    <% } else {  %>
                     <!-- card style -->
                     <div class="task w-72 px-4 py-3 bg-zinc-800 rounded-md text-center">
                         <h1 class="text-white text-2xl tracking-tighter "><%= file.split(".txt").join("") %></h1>
                         <a class="text-blue-500 inline-block mt-3" href="/works/<%= file %>">Read more</a>
                     </div>
+                    <% } %>
                     <!-- card style end -->
                 <% }) %>
             <% }%>
