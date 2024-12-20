@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Tital</title>
+    <!-- tailwind css cnd -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 text-white p-10 capitalize">
+        <div class="flex justify-between items-center">
+        <a href="/" class="mb-10 text-blue-500 text-right">
+            Go Back
+        </a>
+    </div>
+    <form action="/edit" method="post" autocomplete="off">
+                <!-- title ke liye input -->
+                <input type="text" placeholder="Title goes enter"
+                    class="block px-5 py-2 bg-zinc-800 mt-2 w-full outline-none rounded-md text-zinc-500"
+              
+                    value="<%= fileName %>"
+                    name="previousTitle"
+                    required>
+                <!-- New Title-->
+                <input type="text" placeholder="New goes enter"
+                    class="block px-5 py-2 bg-zinc-800 mt-2 w-full outline-none rounded-md"
+                    name="newTitle"
+                    required>
+                <!-- create a button -->
+                <button type="submit" class="mt-2 bg-yellow-500 px-5 rounded-md">Edit Title</button>
+            </form>
+    </div>
+</body>
+</html>

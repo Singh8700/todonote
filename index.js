@@ -42,14 +42,7 @@ app.get("/",(req,res)=>{
 
 })
 
-// remove file
-// const rm = fs.rm("./first_leason/first_leason2.txt",(e)=>{
-//     if(e){
-//             console.log("file copy error",e)
-//             }else{
-//                  console.log("file copy done")
-//              }
-// })
+
 
 // note delete karne ka code
 app.get("/delete/:filename",(req,res)=>{
@@ -63,7 +56,7 @@ app.get("/delete/:filename",(req,res)=>{
 // create route ke lie
 app.post("/create",(req,res)=>{
     // console.log(req.body)
-    fs.writeFile(`./works/${req.body.titles.split(' ').join('')}.txt`,req.body.details,(err)=>{
+    fs.writeFile(`./works/${req.body.titles.split(' ').join('_')}.txt`,req.body.details,(err)=>{
         console.log("something  is wrong",err)
         return res.redirect('/')
     })
@@ -79,6 +72,18 @@ app.get("/works/:filename",(req,res)=>{
             fileData: fileData
         })
     })
+})
+
+//file ke title ko change karne ka code
+app.get("/edit/:filename",(req,res)=>{
+  res.render("edit",{fileName : req.params.filename})
+})
+
+app.post("/edit",(req,res)=>{
+  fs.rename(`./works/${req.body.previousTitle.split(".txt").join("")}`,`./works/${req.body.newTitle.split(" ").join("_")}.txt`,(e)=>{
+    res.redirect("/")
+  })
+ //console.log(req.body)
 })
 
 // server link 

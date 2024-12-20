@@ -16,7 +16,7 @@
         <a href="/delete/<%= fileTitle %>" class="mb-10 text-blue-500 text-right">Delete Notes</a>
     </div>
         <h1 class="text-5xl tracking-tighter mt-10">
-            <%= fileTitle.split(".txt").join("") %>
+            <%= fileTitle.split("_").join(" ").split(".txt").join("") %>
         </h1>
         <p class="text-xl mt-2 text-zinc-300 px-3 font-light">
             <%= fileData %>

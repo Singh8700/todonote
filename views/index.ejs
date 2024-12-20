@@ -25,14 +25,15 @@
                     class="block px-5 py-2 bg-zinc-800 mt-2 w-full outline-none rounded-md"
                     name="titles"
                     required>
-                <!-- textarea create -->
+              <!--  textarea create -->
                 <textarea placeholder="write your task details"
                     class="block px-5 py-2 bg-zinc-800 resize-none mt-2 w-full outline-none rounded-md"
                     placeholder="Message"
                     name="details"
                     required></textarea>
-                <!-- create a button -->
+               <!-- create a button -->
                 <button type="submit" class="mt-2 bg-blue-500 px-5 rounded-md">Add Task</button>
+
             </form>
         </div>
         <!-- result div create -->
@@ -47,8 +48,12 @@
                     <% } else {  %>
                     <!-- card style -->
                     <div class="task w-72 px-4 py-3 bg-zinc-800 rounded-md text-center">
-                        <h1 class="text-white text-2xl tracking-tighter "><%= file.split(".txt").join("") %></h1>
-                        <a class="text-blue-500 inline-block mt-3" href="/works/<%= file %>">Read more</a>
+                        <h1 class="text-white text-2xl tracking-tighter "><%= file.split("_").join(" ").split(".txt").join("") %></h1>
+              <div class="flex justify-between items-center">
+              <a class="text-blue-500 inline-block mt-3 hover:text-blue-200" href="/works/<%= file %>">Read more</a>
+                               <!--Edit Title -->
+             <a class="text-zinc-500 inline-block mt-3 hover:text-zinc-400" href="/edit/<%= file %>">Edit more</a>
+             </div>
                     </div>
                     <% } %>
                     <!-- card style end -->
