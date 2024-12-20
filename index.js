@@ -26,7 +26,7 @@ app.get("/",(req,res)=>{
     // file system module ko use karna hai file ko read karne ke liye "readdir" yani directre read karne ke liye
     fs.readdir(
         // isme pehle path aayega
-        `./files`,
+        `./works`,
         // yec collback
         (error,files)=>{
             // console.log(files)
