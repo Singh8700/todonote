@@ -2,4 +2,9 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+}
+
+.headingText {
+  margin-bottom: -5%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }/*# sourceMappingURL=style.css.map */
