@@ -9,11 +9,14 @@
 </head>
 <body>
     <div class="main w-full min-h-screen bg-zinc-900 text-white p-10 capitalize">
+        <div class="flex justify-between items-center">
         <a href="/" class="mb-10 text-blue-500 text-right">
             Go Back
         </a>
+        <a href="/delete/<%= fileTitle %>" class="mb-10 text-blue-500 text-right">Delete Notes</a>
+    </div>
         <h1 class="text-5xl tracking-tighter mt-10">
-            <%= fileTitle %>
+            <%= fileTitle.split(".txt").join("") %>
         </h1>
         <p class="text-xl mt-2 text-zinc-300 px-3 font-light">
             <%= fileData %>

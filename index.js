@@ -42,6 +42,23 @@ app.get("/",(req,res)=>{
 
 })
 
+// remove file
+// const rm = fs.rm("./first_leason/first_leason2.txt",(e)=>{
+//     if(e){
+//             console.log("file copy error",e)
+//             }else{
+//                  console.log("file copy done")
+//              }
+// })
+
+// note delete karne ka code
+app.get("/delete/:filename",(req,res)=>{
+    console.log(req.path.split("delete/").join("works/"))
+    fs.rm(req.path.split("/delete/").join("./works/"),(err, result)=>{
+        console.log("error is ",err)
+        res.redirect("/")
+    })
+})
 
 // create route ke lie
 app.post("/create",(req,res)=>{
@@ -58,7 +75,7 @@ app.get("/works/:filename",(req,res)=>{
     fs.readFile(`./works/${req.params.filename}`,"utf-8",(err, fileData)=>{
         console.log("somethin want worng",err)
         res.render("show",{
-            fileTitle:req.params.filename.split(".txt").join(""),
+            fileTitle:req.params.filename,
             fileData: fileData
         })
     })
