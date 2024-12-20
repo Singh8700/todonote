@@ -35,7 +35,9 @@
         <!-- result div create -->
         <div class="tasks p-10 flex gap-4 flex-wrap items-center justify-center">
             <!-- check the file length is not 0 -->
-            <% if( files.length > 0 ) { %>
+            <% if(!files) { %>
+                <h4 class="text-blue-500 text-center">Not task yet.</h4>
+            <% } else {  %>
                 <% files.forEach((file)=>{ %>
                     <!-- card style -->
                     <div class="task w-72 px-4 py-3 bg-zinc-800 rounded-md text-center">
@@ -44,8 +46,6 @@
                     </div>
                     <!-- card style end -->
                 <% }) %>
-            <% } else {  %>
-                <h4 class="text-blue-500 text-center">Not task yet.</h4>
             <% }%>
 
         </div>
